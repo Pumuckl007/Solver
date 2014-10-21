@@ -5,18 +5,12 @@ ButtonElement solve;
 double A,B,C,D,E,F;
 
 void main() {
-  a = querySelector("#a")
-    ..onChange.listen(aChange);
-  b = querySelector("#b")
-      ..onChange.listen(aChange);
-  c = querySelector("#c")
-      ..onChange.listen(aChange);
-  d = querySelector("#d")
-      ..onChange.listen(aChange);
-  e = querySelector("#e")
-      ..onChange.listen(aChange);
-  f = querySelector("#f")
-      ..onChange.listen(aChange);
+  a = querySelector("#a");
+  b = querySelector("#b");
+  c = querySelector("#c");
+  d = querySelector("#d");
+  e = querySelector("#e");
+  f = querySelector("#f");
   solve = querySelector("#Solve")
       ..onClick.listen(solveIt);
 }
@@ -32,6 +26,7 @@ void aChange(Event event){
 
 
 void solveIt(Event event){
+  aChange(null);
   double y = ((A*F)-(D*C))/((A*E)-(D*B));
   double x = (B*y-C)/(-A);
   ParagraphElement answer = querySelector("#answer");
