@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solver</title>
+    
+    <script async type="application/dart" src="solver.dart.precompiled.js"></script>
+    <script async src="packages/browser/dart.js"></script>
+    
+    <link rel="stylesheet" href="solver.css">
+  </head>
+  <body>
+    <h1>Solver</h1>
+    <p>This solves for:</p>
+    <p>Ax + By + Cz = D</p>
+    <p>Ex + Fy + Gz = H</p>
+    <p>Ix + Jy + Kz = L</p>
+    <p id="answer">x = ?, y = ?, z = ?</p>
+    <p>The answer above may be infuence by I-EEE floating point error</p>
+    <p><a href="http://en.wikipedia.org/wiki/IEEE_floating_point">More on I-EEE on Wikipedia</a></p>
+    <br>
+    <input id="a"> = A 
+    <input id="b"> = B 
+    <input id="c"> = C 
+    <input id="d"> = D 
+    <br>
+    <input id="e"> = E 
+    <input id="f"> = F 
+    <input id="g"> = G 
+    <input id="h"> = H 
+    <br>
+    <input id="i"> = I 
+    <input id="j"> = J 
+    <input id="k"> = K 
+    <input id="l"> = L 
+    <br>
+    <button id="Solve">Solve!</button>
+    <br>
+
+  </body>
+</html>
