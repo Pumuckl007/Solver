@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:math';
 
 InputElement a,b,c,d,e,f,g,h,i,j,k,l;
 ButtonElement solve;
@@ -34,32 +35,34 @@ void aChange(){
   J = double.parse(j.value);
   K = double.parse(k.value);
   L = double.parse(l.value);
+//  A = (1).toInt();
+//  B = (2).toInt();
+//  C = (1).toInt();
+//  D = (10).toInt();
+//  E = (2).toInt();
+//  F = (-1).toInt();
+//  G = (3).toInt();
+//  H = (-5).toInt();
+//  I = (2).toInt();
+//  J = (-3).toInt();
+//  K = (-5).toInt();
+//  L = (27).toInt();
 }
 
 
 void solveIt(Event event){
   aChange();
-  if((F*I*B*E*C*A)-(F*I*B*G*A*A)+(I*C*F*F*A*A)-
-      (F*I*E*B*C*A)+(C*F*F*A*A*A)-(F*E*B*C*A*A)+(I*C*B*B*E*E)+(E*B*I*F*C*A)-(E*I*G*B*B*A)-(I*C*E*E*B*B)-(F*K*A)+
-      (K*E*B)-(C*E*E*B*B*A*A) == 0){
-    ParagraphElement answer = querySelector("#answer");
-    answer.text = "I can not solve becuase I would have to divide by Zero";
-  } else {
-    double z = ((F*I*B*E*D*A)-(F*I*B*H*A*A)+(I*D*F*F*A*A)-(F*I*E*B*D*A)-(I*D*B*B*E*E)-(E*I*H*B*B*A)+(E*B*I*F*D*A)-
-        (I*D*E*E*B*B)+(E*B*F*D*A*A*A)+(D*E*E*B*B*A*A)-(F*L*A)+(E*B*L))/((F*I*B*E*C*A)-(F*I*B*G*A*A)+(I*C*F*F*A*A)-
-        (F*I*E*B*C*A)+(C*F*F*A*A*A)-(F*E*B*C*A*A)+(I*C*B*B*E*E)+(E*B*I*F*C*A)-(E*I*G*B*B*A)-(I*C*E*E*B*B)-(F*K*A)+
-        (K*E*B)-(C*E*E*B*B*A*A));
-    double y = ((E*C*z)-(E*D)-(A*G*z)+(A*H))/((F*A)-(E*B));
-    double x = ((B*y)+(C*z)-D)/(-A);
-    ParagraphElement answer = querySelector("#answer");
-    answer.text = "x = " + x.toString() + ", y = " + y.toString() + ", z = " + z.toString();
-  }
-  if((F*A)-(E*B) == 0){
-    ParagraphElement answer = querySelector("#answer");
-    answer.text = "I can not solve becuase I would have to divide by Zero";
-  }
-  if(A == 0){
-      ParagraphElement answer = querySelector("#answer");
-      answer.text = "I can not solve becuase I would have to divide by Zero";
+  double z = ((A*F*I*H)-(E*B*I*H)-(I*F*A*H)+(I*F*E*D)-(E*J*E*D)-(A*F*E*L)+(E*B*E*L)+(E*J*A*H))/((E*J*A*G)-(E*J*E*C)
+    -(A*F*E*K)+(E*B*E*K)+(A*F*I*G)-(E*B*I*G)-(I*F*A*G)+(I*F*E*C));
+  double y = ((A*H)-(A*G*z)+(E*C*z)-(E*D))/((A*F)-(E*B));
+  double x = (D-(B*y)-(C*z))/(A);
+  String zS = (z).toString();
+  String yS = (y).toString();
+  String xS = (x).toString();
+  ParagraphElement answer = querySelector("#answer");
+  bool valid = (A*x+B*y+C*z==D) && (E*x+F*y+G*z==H) && (I*x+J*y+K*z==L);
+  answer.text = "x = " + x.toString() + ", y = " + y.toString() + ", z = " + z.toString();
+  if(!valid && answer.text.contains('NaN')){
+    answer.text = "sorry i am not able to solve this. :(";
   }
 }
